@@ -1,0 +1,36 @@
+name: Compress Retroarch Folder
+
+on:
+  workflow_dispatch:  # This allows manual triggering of the action
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout repository
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Step 2: Remove existing NuCheat2.zip (if it exists, tracked or untracked)
+    - name: Remove existing zip file
+      run: |
+        if [ -f NuCheat2.zip ]; then
+          git rm --cached -f NuCheat2.zip || rm -f NuCheat2.zip
+        fi
+
+    # Step 3: Compress the 'retroarch' folder into NuCheat2.zip
+    - name: Compress folder
+      run: zip -r NuCheat2.zip retroarch/
+
+    # Step 4: Commit and push the zipped file to the main branch using GitHub Token
+    - name: Push zipped file to repository
+      run: |
+        git config --global user.email "nu.guitar@hotmail.com"
+        git config --global user.name "nuguitar"
+        git pull origin main  # Make sure you have the latest version
+        git add NuCheat2.zip
+        git commit -m "Replace NuCheat2.zip in the repository"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
