@@ -46,7 +46,6 @@ D3000000 00000000
 D0000000 00000000
 
 [Max Money, Game v1.0]
-*citra_enabled
 08C6DDD0 0098967F
 
 [O-Power Always Full]
