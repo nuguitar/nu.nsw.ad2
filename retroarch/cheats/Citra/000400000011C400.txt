@@ -13,6 +13,7 @@ B81FB92C 00000000
 D2000000 00000000
 
 [Money 999998]
+*citra_enabled
 08C71DC0 000F423E
 
 [Item Position 1 x99]
