@@ -1,4 +1,4 @@
-name: Compress Files1
+name: Compress Atmosphere Folder
 
 on:
   push:
@@ -10,17 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Checkout repository
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install zip tool
+    # Step 2: Install zip tool
+    - name: Install zip
       run: sudo apt-get install zip
 
-    - name: Compress files
-      run: zip -r NuAD2.zip atmosphere/
+    # Step 3: Compress the 'atmosphere' folder into NuCheat1.zip
+    - name: Compress folder
+      run: zip -r NuCheat1.zip atmosphere/
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: NuAD2
-        path: NuAD2.zip
+    # Step 4: Commit and push the zipped file to the main branch
+    - name: Commit zipped file
+      run: |
+        git config --global user.email "your-email@example.com"
+        git config --global user.name "Your GitHub Username"
+        mv NuCheat1.zip ./NuCheat1.zip  # Move zip to root of repository
+        git add NuCheat1.zip
+        git commit -m "Add NuCheat1.zip to the repository"
+        git push origin main
