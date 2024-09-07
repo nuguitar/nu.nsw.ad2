@@ -18,15 +18,24 @@ jobs:
     - name: Install zip
       run: sudo apt-get install zip
 
-    # Step 3: Compress the 'atmosphere' folder into NuCheat1.zip
+    # Step 3: Remove existing NuCheat1.zip (if it exists)
+    - name: Remove existing zip file
+      run: |
+        if [ -f NuCheat1.zip ]; then
+          git rm NuCheat1.zip
+        fi
+
+    # Step 4: Compress the 'atmosphere' folder into NuCheat1.zip
     - name: Compress folder
       run: zip -r NuCheat1.zip atmosphere/
 
-    # Step 4: Commit and push the zipped file to the main branch
-    - name: Commit zipped file
+    # Step 5: Commit and push the zipped file to the main branch using GitHub Token
+    - name: Push zipped file to repository
       run: |
         git config --global user.email "nu.guitar@hotmail.com"
         git config --global user.name "nuguitar"
         git add NuCheat1.zip
-        git commit -m "Add NuCheat1.zip to the repository"
+        git commit -m "Replace NuCheat1.zip in the repository"
         git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
