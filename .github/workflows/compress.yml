@@ -25,9 +25,9 @@ jobs:
     # Step 4: Commit and push the zipped file to the main branch
     - name: Commit zipped file
       run: |
-        git config --global user.email "your-email@example.com"
-        git config --global user.name "Your GitHub Username"
-        mv NuCheat1.zip ./NuCheat1.zip  # Move zip to root of repository
+        git config --global user.email "nu.guitar@hotmail.com"
+        git config --global user.name "nuguitar"
+        mv NuCheat1.zip ./CheatOutput  # Move zip to root of repository
         git add NuCheat1.zip
         git commit -m "Add NuCheat1.zip to the repository"
         git push origin main
