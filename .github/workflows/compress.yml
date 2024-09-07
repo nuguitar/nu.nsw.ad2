@@ -1,9 +1,8 @@
 name: Compress Atmosphere Folder
 
 on:
-  push:
-    branches:
-      - main  # Trigger action on push to the main branch
+  workflow_dispatch:  # This allows manual triggering of the action
+
 
 jobs:
   build:
