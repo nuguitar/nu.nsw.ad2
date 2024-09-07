@@ -27,7 +27,6 @@ jobs:
       run: |
         git config --global user.email "nu.guitar@hotmail.com"
         git config --global user.name "nuguitar"
-        mv NuCheat1.zip ./CheatOutput  # Move zip to root of repository
         git add NuCheat1.zip
         git commit -m "Add NuCheat1.zip to the repository"
         git push origin main
