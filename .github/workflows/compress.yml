@@ -1,0 +1,26 @@
+name: Compress Files1
+
+on:
+  push:
+    branches:
+      - main  # Trigger action on push to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install zip tool
+      run: sudo apt-get install zip
+
+    - name: Compress files
+      run: zip -r NuAD2.zip atmosphere/
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: NuAD2
+        path: NuAD2.zip
