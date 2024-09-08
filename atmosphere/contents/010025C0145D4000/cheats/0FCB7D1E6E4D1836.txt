@@ -1,9 +1,3 @@
-www.cheatslips.com]
-[credits: Beta91]
-
-[Breeze beta92f GUNDAM BREAKER 4 1.3.0 TID: 010025C0145D4000 BID: 0FCB7D1E6E4D1836]
-
-
 [revive inf]
 04000000 00876440 710002D5
 
