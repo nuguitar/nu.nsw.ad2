@@ -1,7 +1,4 @@
-[www.cheatslips.com]
-[credits: James57]
-
-Invincible ON]
+[Invincible ON]
 040C0000 044EC3F8 1E249000
 
 [Invincible OFF]
